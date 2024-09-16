@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from livewire.laravel.com/docs/redirecting by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Sep 2024 16:09:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+        <!-- Base Meta -->
+        <title>Redirecting | Laravel Livewire</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="A full-stack framework for Laravel that takes the pain out of building dynamic UIs.">
+        <link rel="home" href="https://livewire.laravel.com/">
+        
+        <!-- Social Meta -->
+        <meta property="og:site_name" content="Laravel"/>
+        <meta property="og:title" content="Redirecting | Laravel"/>
+        <meta property="og:description" content="A full-stack framework for Laravel that takes the pain out of building dynamic UIs."/>
+        <meta property="og:url" content="redirecting.html"/>
+        <meta property="og:image" content="../meta.png"/>
+        <meta property="og:type" content="website"/>
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="redirecting.html" />
+        <meta property="twitter:title" content="Redirecting | Laravel" />
+        <meta property="twitter:description" content="A full-stack framework for Laravel that takes the pain out of building dynamic UIs." />
+        <meta property="twitter:image" content="../meta.png" />
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+        <link rel="manifest" href="https://livewire.laravel.com/site.webmanifest">
+
+        <!-- Fathom Analytics -->
+                    <script src="../../cdn.usefathom.com/script.js" data-site="UGOOHZKF" data-spa="auto" defer></script>
+        
+        <!-- Algolia Docsearch -->
+                    <link rel="stylesheet" href="../../cdn.jsdelivr.net/npm/docsearch.js%402/dist/cdn/docsearch.min.css" />
+        
+        <!-- Lemon Squeezy -->
+        <script src="../../assets.lemonsqueezy.com/lemon.js" defer></script>
+
+        <!-- Assets -->
+        <link rel="preload" as="style" href="../build/assets/app-a651d870.css" /><link rel="modulepreload" href="../build/assets/app-1b2b5a59.js" /><link rel="stylesheet" href="../build/assets/app-a651d870.css" data-navigate-track="reload" /><script type="module" src="../build/assets/app-1b2b5a59.js" data-navigate-track="reload"></script>
+        <!-- Livewire Styles --><style >[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #FB71A9;}[x-cloak] {display: none !important;}</style>
+    </head>
+
+    <body class="min-h-screen bg-gray-850 font-sans text-gray-100 antialiased">
+        <div x-data="{ navIsOpen: false }" class="sticky top-0 z-10">
+    
+    
+
+    
+    
+    <header class="bg-gray-850/90 backdrop-blur-2xl border-gray-700/40 border-b">
+        <div class="max-w-screen-2xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
+            <div class="-mx-2 flex items-center gap-2 xl:gap-10 xl:flex-1 xl:shrink-0">
+                <a wire:navigate href="https://livewire.laravel.com/" aria-label="Laravel home" title="Laravel home" class="inline-flex items-center rounded-md px-2 py-1 transition hover:opacity-75 focus:outline-none focus-visible:ring focus-visible:ring-pink-400/50">
+                    <svg width="159" height="30" viewBox="0 0 159 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M54.76 23V9h3.4v11h6.24v3h-9.64Zm11.508 0v-2.86h2.36v-8.28h-2.36V9h8.14v2.86h-2.38v8.28h2.38V23h-8.14Zm14.893 0-5.6-14h3.54l2.7 7.14c.16.413.294.773.4 1.08.12.307.22.593.3.86.094.267.174.54.24.82.08.267.167.573.26.92h-.62a20.93 20.93 0 0 1 .68-2.3c.134-.387.3-.847.5-1.38l2.6-7.14h3.48l-5.64 14h-2.84Zm9.918 0V9h9.761v2.9h-6.46v8.2h6.66V23h-9.96Zm1.6-5.74V14.5h7.26v2.76h-7.26ZM106.09 23l-4.2-14h3.46l2.1 7.36c.093.333.173.673.24 1.02.08.333.14.653.18.96.053.307.093.593.12.86.027.253.053.467.08.64h-.44c.08-.493.147-.933.2-1.32.067-.387.14-.747.22-1.08.08-.347.18-.707.3-1.08l2.08-5.54h2.72l2.04 5.54c.16.44.293.853.4 1.24.107.387.187.76.24 1.12.067.347.12.693.16 1.04l-.4.06c.027-.24.047-.46.06-.66.013-.213.027-.413.04-.6.027-.2.053-.407.08-.62.027-.213.067-.447.12-.7.053-.267.127-.567.22-.9L118.19 9h3.38l-4.2 14h-2.6l-3.32-8.06.38.04-3.06 8.02h-2.68Zm16.663 0v-2.86h2.36v-8.28h-2.36V9h8.14v2.86h-2.38v8.28h2.38V23h-8.14Zm10.974 0V9h6.3c.894 0 1.7.193 2.42.58.734.387 1.307.92 1.72 1.6.414.667.62 1.427.62 2.28 0 .88-.206 1.673-.62 2.38a4.463 4.463 0 0 1-1.7 1.64c-.72.4-1.533.6-2.44.6h-3.06V23h-3.24Zm7.76 0-3.56-6.32 3.48-.5 3.96 6.82h-3.88Zm-4.52-7.52h2.76c.347 0 .647-.073.9-.22.267-.16.467-.38.6-.66.147-.28.22-.6.22-.96s-.08-.673-.24-.94a1.555 1.555 0 0 0-.7-.64c-.293-.147-.653-.22-1.08-.22h-2.46v3.64ZM147.37 23V9h9.76v2.9h-6.46v8.2h6.66V23h-9.96Zm1.6-5.74V14.5h7.26v2.76h-7.26Z" fill="#F1F5F9"/><path fill-rule="evenodd" clip-rule="evenodd" d="M34.8 27.706C34.12 28.734 33.605 30 32.223 30c-2.326 0-2.452-3.587-4.78-3.587-2.327 0-2.201 3.587-4.527 3.587s-2.452-3.587-4.78-3.587c-2.327 0-2.201 3.587-4.528 3.587-2.326 0-2.452-3.587-4.78-3.587C6.5 26.413 6.628 30 4.3 30c-.731 0-1.245-.354-1.678-.84A19.866 19.866 0 0 1 0 19.24C0 8.613 8.208 0 18.333 0 28.46 0 36.667 8.614 36.667 19.24c0 3.037-.671 5.91-1.866 8.466Z" fill="#FB70A9"/><path fill-rule="evenodd" clip-rule="evenodd" d="M34.8 27.706C34.12 28.734 33.605 30 32.223 30c-2.326 0-2.452-3.587-4.78-3.587-2.327 0-2.201 3.587-4.527 3.587s-2.452-3.587-4.78-3.587c-2.327 0-2.201 3.587-4.528 3.587-2.326 0-2.452-3.587-4.78-3.587C6.5 26.413 6.628 30 4.3 30c-.731 0-1.245-.354-1.678-.84A19.866 19.866 0 0 1 0 19.24C0 8.613 8.208 0 18.333 0 28.46 0 36.667 8.614 36.667 19.24c0 3.037-.671 5.91-1.866 8.466Z" fill="#FB70A9"/><path fill-rule="evenodd" clip-rule="evenodd" d="M30.834 29.617c4.804-7.147 4.929-15.075.372-23.784a19.19 19.19 0 0 1 5.461 13.447c0 3.026-.695 5.89-1.934 8.434C34.028 28.738 33.493 30 32.06 30c-.49 0-.886-.148-1.226-.383Z" fill="#E24CA6"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.35 24.038c6.376 0 9.06-3.698 9.06-8.95C26.41 9.834 22.355 5 17.35 5c-5.003 0-9.059 4.835-9.059 10.087 0 5.253 2.684 8.951 9.06 8.951Z" fill="#fff"/><path d="M14.915 15.385c1.876 0 3.397-1.68 3.397-3.75 0-2.071-1.52-3.75-3.397-3.75-1.876 0-3.397 1.679-3.397 3.75 0 2.07 1.52 3.75 3.397 3.75Z" fill="#030776"/><path d="M14.35 12.5c.937 0 1.698-.775 1.698-1.73 0-.957-.76-1.731-1.699-1.731-.938 0-1.699.774-1.699 1.73s.76 1.731 1.7 1.731Z" fill="#fff"/></svg>
+                </a>
+                <div class="flex items-center gap-1">
+                    <a
+                        wire:navigate
+                        href="https://livewire.laravel.com/docs"
+                        class="hidden lg:inline-flex gap-2.5 items-center rounded-full whitespace-nowrap px-4 py-2 font-medium text-sm transition-colors xl:text-base focus:outline-none focus-visible:ring focus-visible:ring-pink-400/50 text-pink-400 bg-pink-400/10 hover:text-pink-300 hover:bg-pink-400/20"
+                    >
+                        <svg class="mt-0.25 w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M8 12c1.618-1.04 2.843-1.323 4.533-1.4.78-.035 1.171-.053 1.443-.203.247-.136.429-.326.553-.579.138-.278.138-.646.138-1.38V1.333c-2.963 0-4.445 0-6.667 1.429M8 12c-1.618-1.04-2.843-1.323-4.533-1.4-.78-.035-1.171-.053-1.443-.203a1.295 1.295 0 0 1-.554-.579c-.137-.278-.137-.646-.137-1.38V1.333c2.963 0 4.445 0 6.667 1.429M8 12V2.762M14 13c-2.667 0-4 .333-6 1.667C6 13.333 4.667 13 2 13"/></svg>
+                        <span>Documentation</span>
+                    </a>
+                    <a
+                        wire:navigate
+                        href="https://livewire.laravel.com/screencasts"
+                        class="hidden lg:inline-flex gap-2.5 items-center rounded-full whitespace-nowrap px-4 py-2 font-medium text-sm transition-colors xl:text-base focus:outline-none focus-visible:ring focus-visible:ring-pink-400/50 text-gray-400 hover:text-gray-300 hover:bg-gray-400/10"
+                    >
+                        <svg class="mt-0.25 w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M1.667 4.667h12.666m-3.466-3 1.8 3M7 1.333l2 3.334m-5.333-3 1.666 3M5 11.333a.333.333 0 0 1-.667 0m.667 0a.333.333 0 0 0-.667 0m.667 0h-.667m2.334 3.334h2.666c1.867 0 2.8 0 3.514-.364a3.333 3.333 0 0 0 1.456-1.456c.364-.713.364-1.647.364-3.514V6.667c0-1.867 0-2.8-.364-3.514a3.333 3.333 0 0 0-1.456-1.456c-.713-.364-1.647-.364-3.514-.364H6.667c-1.867 0-2.8 0-3.514.364-.627.32-1.137.83-1.456 1.456-.364.713-.364 1.647-.364 3.514v2.666c0 1.867 0 2.8.364 3.514.32.627.83 1.137 1.456 1.456.713.364 1.647.364 3.514.364Z"/></svg>
+                        <span>Screencasts</span>
+                    </a>
+                    <a
+                        wire:navigate
+                        href="https://livewire.laravel.com/partners"
+                        class="hidden lg:inline-flex gap-2.5 items-center rounded-full whitespace-nowrap px-4 py-2 font-medium text-sm transition-colors xl:text-base focus:outline-none focus-visible:ring focus-visible:ring-pink-400/50 text-gray-400 hover:text-gray-300 hover:bg-gray-400/10"
+                    >
+                        <svg class="mt-0.25 w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+                        <span>Premium Support</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-end gap-6">
+                <div
+        id="js-search-input"
+        class="docsearch-input__wrapper relative hidden md:block"
+        x-data="{
+            init() {
+                docsearch({
+                    appId: '418WMK58D6',
+                    apiKey: '4c5d415abd4c0c167f4368e679076c09',
+                    indexName: 'livewire-framework-3',
+                    inputSelector: '#docsearch-input',
+                    debug: true, // Set debug to true if you want to inspect the dropdown
+                })
+            },
+            handleKeydown(e) {
+                // '/'
+                if (e.keyCode == 191) {
+                    document.getElementById('docsearch-input').focus();
+                    e.preventDefault()
+                }
+
+                // 'cmd+k'
+                if (e.keyCode == 75 && (e.metaKey == true || e.ctrlKey == true)) {
+                    document.getElementById('docsearch-input').focus();
+                    e.preventDefault()
+                }
+
+                // 'esc'
+                if (e.keyCode == 27) {
+                    document.getElementById('docsearch-input').blur();
+                    e.preventDefault()
+                }
+            },
+        }"
+    >
+        <label for="search" class="sr-only">Search</label>
+
+        <input
+            id="docsearch-input"
+            class="docsearch-input border-gray-900/60 block w-full rounded-[10px] border bg-gray-800 pl-10 pr-4 py-2.5 text-sm text-gray-300 placeholder-gray-600 outline-none transition-color focus-visible:border-gray-900 focus-visible:ring-1 focus-visible:ring-pink-400/50"
+            name="docsearch"
+            type="text"
+            placeholder="Search"
+            @keydown.window="handleKeydown"
+        >
+
+        <div class="pointer-events-none absolute inset-0 left-3 flex items-center" aria-hidden="true">
+            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 9.167a5.917 5.917 0 1 1 11.833 0 5.917 5.917 0 0 1-11.833 0ZM9.167 1.75a7.417 7.417 0 1 0 4.687 13.165l2.282 2.282a.75.75 0 0 0 1.061-1.06l-2.282-2.283A7.417 7.417 0 0 0 9.167 1.75Z" fill="#475569" opacity=".8"/></svg>
+        </div>
+    </div>
+
+    
+                
+
+                <div class="flex gap-2 items-center">
+                    <a href="https://github.com/livewire/livewire" class="rounded-md p-1 text-gray-400 transition-colors hover:text-gray-300 focus:outline-none focus-visible:ring focus-visible:ring-pink-400/50">
+                        <svg class="w-6" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 0C7.16 0 0 7.16 0 16c0 7.08 4.58 13.06 10.94 15.18.8.14 1.1-.34 1.1-.76 0-.38-.02-1.64-.02-2.98-4.02.74-5.06-.98-5.38-1.88-.18-.46-.96-1.88-1.64-2.26-.56-.3-1.36-1.04-.02-1.06 1.26-.02 2.16 1.16 2.46 1.64 1.44 2.42 3.74 1.74 4.66 1.32.14-1.04.56-1.74 1.02-2.14-3.56-.4-7.28-1.78-7.28-7.9 0-1.74.62-3.18 1.64-4.3-.16-.4-.72-2.04.16-4.24 0 0 1.34-.42 4.4 1.64 1.28-.36 2.64-.54 4-.54 1.36 0 2.72.18 4 .54 3.06-2.08 4.4-1.64 4.4-1.64.88 2.2.32 3.84.16 4.24 1.02 1.12 1.64 2.54 1.64 4.3 0 6.14-3.74 7.5-7.3 7.9.58.5 1.08 1.46 1.08 2.96 0 2.14-.02 3.86-.02 4.4 0 .42.3.92 1.1.76A16.026 16.026 0 0 0 32 16c0-8.84-7.16-16-16-16Z" fill="currentColor"/></svg>
+                    </a>
+
+                                            <a
+                            href="https://livewire.laravel.com/login/github"
+                            class="hidden lg:inline-flex gap-2.5 items-center rounded-full whitespace-nowrap px-4 py-2 font-medium text-sm transition-colors xl:text-base focus:outline-none focus-visible:ring focus-visible:ring-pink-400/50 text-gray-400 hover:text-gray-300 hover:bg-gray-400/10"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                            </svg>
+
+                            <span>Log in</span>
+                        </a>
+                                    </div>
+
+                <button class="inline-flex rounded-md p-1 text-gray-400 transition-colors hover:text-gray-300 focus:outline-none focus-visible:ring focus-visible:ring-pink-400/50 lg:hidden" @click.prevent="navIsOpen = ! navIsOpen">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10zm0 5.25a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav
+        x-dialog
+        x-model="navIsOpen"
+        style="display: none"
+        class="fixed inset-0 z-20 overflow-hidden lg:hidden"
+    >
+        <div x-dialog:overlay x-transition.opacity class="fixed inset-0 bg-gray-900/50"></div>
+
+        <div class="fixed inset-y-0 right-0 w-full max-w-sm">
+            <div
+                x-dialog:panel
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="translate-x-full"
+                x-transition:enter-end="translate-x-0"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="translate-x-0"
+                x-transition:leave-end="translate-x-full"
+                class="h-full w-full"
+            >
+                <div class="bg-gray-850 flex h-full flex-col justify-between overflow-y-auto shadow-lg">
+                    <!-- Close Button -->
+                    <div class="absolute top-0 right-0 pt-4 pr-4">
+                        <button type="button" @click="$dialog.close()" class="rounded-md p-2 text-gray-400 transition hover:text-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50">
+                            <span class="sr-only">Close nav</span>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
+                                <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="flex flex-col gap-3 py-16 px-12">
+                        <a wire:navigate href="https://livewire.laravel.com/docs" class="flex items-center gap-3 rounded-md p-2 text-gray-400 transition-colors hover:text-gray-300 focus:outline-none focus-visible:ring focus-visible:ring-pink-400/50">
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                            <span>Documentation</span>
+                        </a>
+
+                        <a wire:navigate href="https://livewire.laravel.com/screencasts" class="flex items-center gap-3 rounded-md p-2 text-gray-400 transition-colors hover:text-gray-300 focus:outline-none focus-visible:ring focus-visible:ring-pink-400/50">
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M1.667 4.667h12.666m-3.466-3 1.8 3M7 1.333l2 3.334m-5.333-3 1.666 3M5 11.333a.333.333 0 0 1-.667 0m.667 0a.333.333 0 0 0-.667 0m.667 0h-.667m2.334 3.334h2.666c1.867 0 2.8 0 3.514-.364a3.333 3.333 0 0 0 1.456-1.456c.364-.713.364-1.647.364-3.514V6.667c0-1.867 0-2.8-.364-3.514a3.333 3.333 0 0 0-1.456-1.456c-.713-.364-1.647-.364-3.514-.364H6.667c-1.867 0-2.8 0-3.514.364-.627.32-1.137.83-1.456 1.456-.364.713-.364 1.647-.364 3.514v2.666c0 1.867 0 2.8.364 3.514.32.627.83 1.137 1.456 1.456.713.364 1.647.364 3.514.364Z"/></svg>
+                            <span>Screencasts</span>
+                        </a>
+
+                        <a
+                            wire:navigate
+                            href="https://livewire.laravel.com/partners"
+                            class="flex items-center gap-3 rounded-md p-2 text-gray-400 transition-colors hover:text-gray-300 focus:outline-none focus-visible:ring focus-visible:ring-pink-400/50"
+                        >
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+                            <span>Premium Support</span>
+                        </a>
+
+                                                    <a href="https://livewire.laravel.com/login/github" class="flex items-center gap-3 rounded-md p-2 text-gray-400 transition-colors hover:text-gray-300 focus:outline-none focus-visible:ring focus-visible:ring-pink-400/50">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                                </svg>
+                                <span>Log in</span>
+                            </a>
+                        
+                                                    <div class="mt-4">
+                                        <div class="w-full">
+            <div class="text-left w-full">
+    <div
+        x-data="{ open: false }"
+        @keydown.window.escape="open = false"
+        @click.away="open = false"
+        class="relative inline-block w-full text-left"
+    >
+        <div>
+            <span class="w-full rounded-md shadow-sm">
+                <button @mousedown="open = !open" type="button" class="inline-flex w-full justify-between rounded-md border border-gray-800 bg-gray-800 px-4 py-2 text-sm text-gray-200 transition duration-150 ease-in-out focus:outline-none focus:ring-1 focus:ring-pink-400/50" id="options-menu" aria-haspopup="true" aria-expanded="true" x-bind:aria-expanded="open">
+                    Version 3.x
+
+                    <svg class="-mr-1 ml-2 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <div x-show="open" x-cloak class="absolute left-0 z-10 mt-2 w-full origin-top-left rounded-md">
+            <div class="rounded-md bg-gray-800 ring-1 ring-gray-800 ring-opacity-5">
+                <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                    <a href="index.html" class="block px-4 py-2 text-sm leading-5 text-gray-200 transition-colors hover:bg-gray-700 focus:bg-gray-700 focus:text-gray-100 focus:outline-none" role="menuitem">Version 3.x</a>
+                    <a href="https://laravel-livewire.com/docs/2.x" class="block px-4 py-2 text-sm leading-5 text-gray-200 transition-colors hover:bg-gray-700 focus:bg-gray-700 focus:text-gray-100 focus:outline-none" role="menuitem">Version 2.x</a>
+                    <a href="https://laravel-livewire.com/docs/1.x" class="block px-4 py-2 text-sm leading-5 text-gray-200 transition-colors hover:bg-gray-700 focus:bg-gray-700 focus:text-gray-100 focus:outline-none" role="menuitem">Version 1.x</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <div class="mt-2">
+                <ul class="list-none space-y-5 divide-y divide-gray-700 px-3">
+            <li class="pt-5">
+            <h5 class="text-sm text-gray-500 uppercase font-medium">Getting Started</h5>
+
+            <ul class="mt-4 list-none space-y-2.5">
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="quickstart.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/quickstart') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Quickstart
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="installation.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/installation') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Installation
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="upgrading.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/upgrading') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Upgrade Guide
+                        </a>
+                    </li>
+                            </ul>
+        </li>
+            <li class="pt-5">
+            <h5 class="text-sm text-gray-500 uppercase font-medium">Essentials</h5>
+
+            <ul class="mt-4 list-none space-y-2.5">
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="components.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/components') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Components
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="properties.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/properties') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Properties
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="actions.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/actions') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Actions
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="forms.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/forms') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Forms
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="events.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/events') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Events
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="lifecycle-hooks.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/lifecycle-hooks') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Lifecycle Hooks
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="nesting.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/nesting') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Nesting Components
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="testing.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/testing') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Testing
+                        </a>
+                    </li>
+                            </ul>
+        </li>
+            <li class="pt-5">
+            <h5 class="text-sm text-gray-500 uppercase font-medium">Features</h5>
+
+            <ul class="mt-4 list-none space-y-2.5">
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="alpine.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/alpine') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Alpine
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="navigate.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/navigate') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Navigate
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="lazy.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/lazy') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Lazy Loading
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="validation.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/validation') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Validation
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="uploads.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/uploads') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            File Uploads
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="pagination.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/pagination') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Pagination
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="url.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/url') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            URL Query Parameters
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="computed-properties.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/computed-properties') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Computed Properties
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="session-properties.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/session-properties') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Session Properties
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="redirecting.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/redirecting') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Redirecting
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="downloads.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/downloads') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            File Downloads
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="locked.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/locked') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Locked Properties
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="bundling.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/bundling') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Request Bundling
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="offline.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/offline') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Offline States
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="teleport.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/teleport') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Teleport
+                        </a>
+                    </li>
+                            </ul>
+        </li>
+            <li class="pt-5">
+            <h5 class="text-sm text-gray-500 uppercase font-medium">HTML Directives</h5>
+
+            <ul class="mt-4 list-none space-y-2.5">
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-click.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-click') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:click
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-submit.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-submit') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:submit
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-model.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-model') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:model
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-loading.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-loading') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:loading
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-navigate.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-navigate') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:navigate
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-dirty.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-dirty') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:dirty
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-confirm.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-confirm') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:confirm
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-transition.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-transition') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:transition
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-init.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-init') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:init
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-poll.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-poll') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:poll
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-offline.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-offline') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:offline
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-ignore.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-ignore') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:ignore
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-replace.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-replace') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:replace
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-stream.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-stream') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:stream
+                        </a>
+                    </li>
+                            </ul>
+        </li>
+            <li class="pt-5">
+            <h5 class="text-sm text-gray-500 uppercase font-medium">Concepts</h5>
+
+            <ul class="mt-4 list-none space-y-2.5">
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="morphing.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/morphing') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Morphing
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="hydration.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/hydration') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Hydration
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="understanding-nesting.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/understanding-nesting') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Nesting
+                        </a>
+                    </li>
+                            </ul>
+        </li>
+            <li class="pt-5">
+            <h5 class="text-sm text-gray-500 uppercase font-medium">Advanced</h5>
+
+            <ul class="mt-4 list-none space-y-2.5">
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="troubleshooting.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/troubleshooting') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Troubleshooting
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="security.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/security') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Security
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="javascript.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/javascript') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            JavaScript
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="synthesizers.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/synthesizers') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Synthesizers
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="contribution-guide.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/contribution-guide') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Contribution Guide
+                        </a>
+                    </li>
+                            </ul>
+        </li>
+            <li class="pt-5">
+            <h5 class="text-sm text-gray-500 uppercase font-medium">Packages</h5>
+
+            <ul class="mt-4 list-none space-y-2.5">
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="volt.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/volt') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Volt
+                        </a>
+                    </li>
+                            </ul>
+        </li>
+    </ul>
+            </div>
+        </div>
+                                </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+        <main role="main" class="overflow-hidden lg:flex lg:flex-1 lg:flex-col">
+            <div class="max-w-screen-2xl w-full mx-auto px-6 flex flex-wrap justify-between gap-10">
+        <div x-persist="docs-sidebar">
+            <div wire:scroll class="fixed -mx-3 overflow-y-auto custom-scrollbar max-h-[calc(100%-134px)] hidden lg:block py-14 lg:max-w-[240px] lg:w-full">
+                <div class="px-3">
+                    <div class="text-left w-full">
+    <div
+        x-data="{ open: false }"
+        @keydown.window.escape="open = false"
+        @click.away="open = false"
+        class="relative inline-block w-full text-left"
+    >
+        <div>
+            <span class="w-full rounded-md shadow-sm">
+                <button @mousedown="open = !open" type="button" class="inline-flex w-full justify-between rounded-md border border-gray-800 bg-gray-800 px-4 py-2 text-sm text-gray-200 transition duration-150 ease-in-out focus:outline-none focus:ring-1 focus:ring-pink-400/50" id="options-menu" aria-haspopup="true" aria-expanded="true" x-bind:aria-expanded="open">
+                    Version 3.x
+
+                    <svg class="-mr-1 ml-2 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <div x-show="open" x-cloak class="absolute left-0 z-10 mt-2 w-full origin-top-left rounded-md">
+            <div class="rounded-md bg-gray-800 ring-1 ring-gray-800 ring-opacity-5">
+                <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                    <a href="index.html" class="block px-4 py-2 text-sm leading-5 text-gray-200 transition-colors hover:bg-gray-700 focus:bg-gray-700 focus:text-gray-100 focus:outline-none" role="menuitem">Version 3.x</a>
+                    <a href="https://laravel-livewire.com/docs/2.x" class="block px-4 py-2 text-sm leading-5 text-gray-200 transition-colors hover:bg-gray-700 focus:bg-gray-700 focus:text-gray-100 focus:outline-none" role="menuitem">Version 2.x</a>
+                    <a href="https://laravel-livewire.com/docs/1.x" class="block px-4 py-2 text-sm leading-5 text-gray-200 transition-colors hover:bg-gray-700 focus:bg-gray-700 focus:text-gray-100 focus:outline-none" role="menuitem">Version 1.x</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+
+                <div class="mt-2">
+                    <ul class="list-none space-y-5 divide-y divide-gray-700 px-3">
+            <li class="pt-5">
+            <h5 class="text-sm text-gray-500 uppercase font-medium">Getting Started</h5>
+
+            <ul class="mt-4 list-none space-y-2.5">
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="quickstart.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/quickstart') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Quickstart
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="installation.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/installation') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Installation
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="upgrading.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/upgrading') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Upgrade Guide
+                        </a>
+                    </li>
+                            </ul>
+        </li>
+            <li class="pt-5">
+            <h5 class="text-sm text-gray-500 uppercase font-medium">Essentials</h5>
+
+            <ul class="mt-4 list-none space-y-2.5">
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="components.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/components') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Components
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="properties.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/properties') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Properties
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="actions.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/actions') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Actions
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="forms.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/forms') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Forms
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="events.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/events') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Events
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="lifecycle-hooks.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/lifecycle-hooks') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Lifecycle Hooks
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="nesting.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/nesting') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Nesting Components
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="testing.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/testing') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Testing
+                        </a>
+                    </li>
+                            </ul>
+        </li>
+            <li class="pt-5">
+            <h5 class="text-sm text-gray-500 uppercase font-medium">Features</h5>
+
+            <ul class="mt-4 list-none space-y-2.5">
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="alpine.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/alpine') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Alpine
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="navigate.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/navigate') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Navigate
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="lazy.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/lazy') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Lazy Loading
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="validation.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/validation') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Validation
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="uploads.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/uploads') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            File Uploads
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="pagination.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/pagination') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Pagination
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="url.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/url') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            URL Query Parameters
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="computed-properties.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/computed-properties') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Computed Properties
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="session-properties.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/session-properties') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Session Properties
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="redirecting.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/redirecting') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Redirecting
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="downloads.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/downloads') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            File Downloads
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="locked.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/locked') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Locked Properties
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="bundling.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/bundling') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Request Bundling
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="offline.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/offline') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Offline States
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="teleport.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/teleport') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Teleport
+                        </a>
+                    </li>
+                            </ul>
+        </li>
+            <li class="pt-5">
+            <h5 class="text-sm text-gray-500 uppercase font-medium">HTML Directives</h5>
+
+            <ul class="mt-4 list-none space-y-2.5">
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-click.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-click') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:click
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-submit.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-submit') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:submit
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-model.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-model') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:model
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-loading.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-loading') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:loading
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-navigate.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-navigate') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:navigate
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-dirty.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-dirty') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:dirty
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-confirm.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-confirm') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:confirm
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-transition.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-transition') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:transition
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-init.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-init') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:init
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-poll.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-poll') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:poll
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-offline.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-offline') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:offline
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-ignore.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-ignore') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:ignore
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-replace.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-replace') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:replace
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="wire-stream.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/wire-stream') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            wire:stream
+                        </a>
+                    </li>
+                            </ul>
+        </li>
+            <li class="pt-5">
+            <h5 class="text-sm text-gray-500 uppercase font-medium">Concepts</h5>
+
+            <ul class="mt-4 list-none space-y-2.5">
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="morphing.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/morphing') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Morphing
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="hydration.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/hydration') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Hydration
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="understanding-nesting.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/understanding-nesting') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Nesting
+                        </a>
+                    </li>
+                            </ul>
+        </li>
+            <li class="pt-5">
+            <h5 class="text-sm text-gray-500 uppercase font-medium">Advanced</h5>
+
+            <ul class="mt-4 list-none space-y-2.5">
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="troubleshooting.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/troubleshooting') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Troubleshooting
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="security.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/security') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Security
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="javascript.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/javascript') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            JavaScript
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="synthesizers.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/synthesizers') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Synthesizers
+                        </a>
+                    </li>
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="contribution-guide.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/contribution-guide') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Contribution Guide
+                        </a>
+                    </li>
+                            </ul>
+        </li>
+            <li class="pt-5">
+            <h5 class="text-sm text-gray-500 uppercase font-medium">Packages</h5>
+
+            <ul class="mt-4 list-none space-y-2.5">
+                                    <li>
+                        <a
+                            wire:navigate
+                            href="volt.html"
+                            class="block leading-5 rounded-sm transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50"
+                            x-bind:class="$current('/docs/volt') ? 'text-white font-medium relative after:block after:absolute after:-left-3 after:top-0 after:border-l after:border-pink-400 after:w-px after:h-5' : 'text-gray-300'"
+                        >
+                            Volt
+                        </a>
+                    </li>
+                            </ul>
+        </li>
+    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="hidden lg:block lg:max-w-[240px] lg:w-full"></div>
+
+        <div class="pt-12 docsearch-content overflow-hidden flex-1 mx-auto max-w-prose w-full">
+            <h1 class="font-semibold text-4xl mb-8">Redirecting</h1>
+
+            
+            <div class="@container w-full flex items-center justify-between gap-6 rounded-2xl bg-[#0E1829] p-5 mb-8 max-w-prose">
+                <div class="relative z-0 grid h-16 w-16 place-items-center hidden @lg:block">
+                    <!-- Play button -->
+                    <svg width="60" height="64" viewBox="0 0 60 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M29.6522 26.7533C32.3189 28.2929 32.3189 32.1419 29.6522 33.6815L15.8913 41.6263C13.2246 43.1659 9.8913 41.2414 9.8913 38.1622L9.8913 22.2725C9.8913 19.1933 13.2246 17.2688 15.8913 18.8084L29.6522 26.7533Z" fill="#8154BB" fill-opacity="0.8" />
+                        <g filter="url(#filter0_b_28_895)">
+                            <path d="M48 27.2023C53.3334 30.2815 53.3334 37.9795 48 41.0587L28.6304 52.2417C23.2971 55.3209 16.6304 51.4719 16.6304 45.3135L16.6304 22.9474C16.6304 16.789 23.2971 12.94 28.6304 16.0192L48 27.2023Z" fill="url(#paint0_linear_28_895)" fill-opacity="0.4" />
+                        </g>
+                        <g filter="url(#filter1_b_28_895)">
+                            <path d="M44.6739 17.1916C48.0073 19.1161 48.0073 23.9274 44.6739 25.8519L27.3913 35.83C24.058 37.7545 19.8913 35.3489 19.8913 31.4999L19.8913 11.5436C19.8913 7.69463 24.058 5.28899 27.3913 7.2135L44.6739 17.1916Z" fill="#D060B7" fill-opacity="0.4" />
+                        </g>
+                        <g filter="url(#filter2_b_28_895)">
+                            <path d="M45.8261 24.1588C51.1595 27.238 51.1595 34.936 45.8261 38.0152L26.4566 49.1983C21.1232 52.2775 14.4565 48.4285 14.4565 42.2701L14.4565 19.904C14.4565 13.7456 21.1232 9.89657 26.4565 12.9758L45.8261 24.1588Z" fill="url(#paint1_linear_28_895)" fill-opacity="0.8" />
+                        </g>
+                        <g filter="url(#filter3_b_28_895)">
+                            <path d="M38.5724 28.2445C40.8224 29.3254 40.8452 32.5211 38.6108 33.634L27.2725 39.2813C25.278 40.2746 22.935 38.824 22.935 36.5959L22.935 25.5017C22.935 23.2922 25.2425 21.8408 27.234 22.7976L38.5724 28.2445Z" fill="url(#paint2_linear_28_895)" fill-opacity="0.8" />
+                        </g>
+                        <g filter="url(#filter4_b_28_895)">
+                            <path d="M13.65 57.3101C12.8989 57.6126 12.1185 56.9435 12.3027 56.155L12.3263 56.054C12.497 55.3234 13.3814 55.034 13.951 55.5223L14.0236 55.5846C14.5931 56.0729 14.4422 56.9911 13.7463 57.2714L13.65 57.3101Z" fill="url(#paint3_linear_28_895)" />
+                        </g>
+                        <g filter="url(#filter5_b_28_895)">
+                            <path d="M58.6165 30.6726C58.1901 31.361 57.1651 31.2837 56.8468 30.5391L56.8061 30.4437C56.5112 29.7538 57.0528 28.997 57.8008 29.0535L57.8962 29.0607C58.6443 29.1171 59.0662 29.9466 58.6712 30.5844L58.6165 30.6726Z" fill="url(#paint4_linear_28_895)" />
+                        </g>
+                        <path d="M23.9131 7.82605L54.0261 25.9012" stroke="url(#paint5_linear_28_895)" stroke-linecap="round" />
+                        <path d="M11.7391 8.6958L11.7391 50.0002" stroke="url(#paint6_linear_28_895)" stroke-linecap="round" />
+                        <path d="M23.0435 59.3796L53.1566 41.3044" stroke="url(#paint7_linear_28_895)" stroke-linecap="round" />
+                        <path d="M47.3913 47.8262L51.3044 45.2175" stroke="#BB64B0" stroke-linecap="round" />
+                        <path d="M25.6522 60.4348L27.8261 59.1305" stroke="#BB64B0" stroke-linecap="round" />
+                        <defs>
+                            <filter id="filter0_b_28_895" x="6.63043" y="4.93555" width="55.3696" height="58.3899" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feGaussianBlur in="BackgroundImageFix" stdDeviation="5" />
+                                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_28_895" />
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_28_895" result="shape" />
+                            </filter>
+                            <filter id="filter1_b_28_895" x="9.89133" y="-3.46387" width="47.2826" height="49.9712" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feGaussianBlur in="BackgroundImageFix" stdDeviation="5" />
+                                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_28_895" />
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_28_895" result="shape" />
+                            </filter>
+                            <filter id="filter2_b_28_895" x="4.45654" y="1.89209" width="55.3696" height="58.3899" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feGaussianBlur in="BackgroundImageFix" stdDeviation="5" />
+                                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_28_895" />
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_28_895" result="shape" />
+                            </filter>
+                            <filter id="filter3_b_28_895" x="12.935" y="12.498" width="37.3383" height="37.1018" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feGaussianBlur in="BackgroundImageFix" stdDeviation="5" />
+                                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_28_895" />
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_28_895" result="shape" />
+                            </filter>
+                            <filter id="filter4_b_28_895" x="2.27536" y="45.2808" width="22.0976" height="22.1035" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feGaussianBlur in="BackgroundImageFix" stdDeviation="5" />
+                                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_28_895" />
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_28_895" result="shape" />
+                            </filter>
+                            <filter id="filter5_b_28_895" x="46.7243" y="19.0505" width="22.098" height="22.0956" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feGaussianBlur in="BackgroundImageFix" stdDeviation="5" />
+                                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_28_895" />
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_28_895" result="shape" />
+                            </filter>
+                            <linearGradient id="paint0_linear_28_895" x1="18.731" y1="10.6541" x2="18.731" y2="58.1011" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#617AFF" />
+                                <stop offset="1" stop-color="#FB70A9" />
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_28_895" x1="16.5571" y1="7.6106" x2="16.5571" y2="55.0577" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#617AFF" />
+                                <stop offset="1" stop-color="#FB70A9" />
+                            </linearGradient>
+                            <linearGradient id="paint2_linear_28_895" x1="38.6958" y1="30.8695" x2="23.0436" y2="38.2608" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="white" />
+                                <stop offset="1" stop-color="white" stop-opacity="0.15" />
+                            </linearGradient>
+                            <linearGradient id="paint3_linear_28_895" x1="11.8648" y1="58.029" x2="14.6948" y2="54.7283" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#D061A0" />
+                                <stop offset="1" stop-color="#D061A0" stop-opacity="0" />
+                            </linearGradient>
+                            <linearGradient id="paint4_linear_28_895" x1="56.98" y1="30.7262" x2="59.4007" y2="29.7539" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#9865BD" stop-opacity="0" />
+                                <stop offset="1" stop-color="#9765BD" />
+                            </linearGradient>
+                            <linearGradient id="paint5_linear_28_895" x1="53.7676" y1="26.3293" x2="23.4636" y2="7.99143" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FB70A9" />
+                                <stop offset="1" stop-color="#FB70A9" stop-opacity="0" />
+                            </linearGradient>
+                            <linearGradient id="paint6_linear_28_895" x1="11.2391" y1="49.9986" x2="11.4147" y2="8.34293" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#B566D1" />
+                                <stop offset="1" stop-color="#764BAD" stop-opacity="0" />
+                            </linearGradient>
+                            <linearGradient id="paint7_linear_28_895" x1="52.8981" y1="40.8764" x2="22.5941" y2="59.2143" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FB70A9" />
+                                <stop offset="1" stop-color="#FB70A9" stop-opacity="0" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
+                    <!-- Blur -->
+                    <div class="absolute right-1/2 top-1/2 -z-10 h-10 w-10 -translate-y-1/2 translate-x-1/2 rounded-full bg-[#752DAD] blur-[20px]"></div>
+                </div>
+
+                <div class="flex flex-col @lg:flex-row gap-6 items-center">
+                    <!-- Title -->
+                    <div class="space-y-0.5 text-center min-[500px]:flex-grow min-[500px]:text-left">
+                        <div class="text-sm font-semibold text-[#FB70A9]">Are you a visual learner?</div>
+                        <div class="text-lg font-semibold text-white">Master Livewire with our in-depth screencasts</div>
+                    </div>
+
+                    <!-- Button -->
+                    <a wire:navigate href="https://livewire.laravel.com/screencasts" class="group/watch-button relative flex justify-center h-10 items-center gap-3 rounded-full bg-gradient-to-tr from-[#181C37] to-[#1e2242] px-5">
+                        <!-- Play Icon -->
+                        <div class="text-[#FB70A9] transition duration-300 group-hover/watch-button:text-[#b269ba]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="27" viewBox="0 0 22 23" fill="none">
+                                <g opacity="0.2">
+                                    <path d="M16.568 12.5579C16.7148 12.651 16.8348 12.7807 16.9162 12.9343C16.9975 13.0879 17.0375 13.2601 17.032 13.4338C17.0266 13.6076 16.9759 13.7769 16.8851 13.9251C16.7942 14.0733 16.6663 14.1952 16.514 14.2789L8.481 18.6869C8.32878 18.7704 8.15743 18.8129 7.98383 18.8101C7.81022 18.8073 7.64034 18.7593 7.4909 18.6709C7.34146 18.5825 7.2176 18.4567 7.13153 18.3059C7.04546 18.1552 7.00013 17.9845 7 17.8109V8.31692C6.99997 8.1379 7.048 7.96216 7.13908 7.80804C7.23015 7.65392 7.36093 7.52707 7.51775 7.44074C7.67458 7.35441 7.85171 7.31176 8.03064 7.31724C8.20957 7.32273 8.38376 7.37615 8.535 7.47192L16.568 12.5579Z" fill="currentColor" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.067 13.3409L9 10.1329V16.1209L14.067 13.3409ZM16.514 14.2789C16.6663 14.1952 16.7942 14.0733 16.8851 13.9251C16.9759 13.7769 17.0266 13.6076 17.032 13.4338C17.0375 13.2601 16.9975 13.0879 16.9162 12.9343C16.8348 12.7807 16.7148 12.651 16.568 12.5579L8.535 7.47192C8.38376 7.37615 8.20957 7.32273 8.03064 7.31724C7.85171 7.31176 7.67458 7.35441 7.51775 7.44074C7.36093 7.52707 7.23015 7.65392 7.13908 7.80804C7.048 7.96216 6.99997 8.1379 7 8.31692V17.8109C7.00013 17.9845 7.04546 18.1552 7.13153 18.3059C7.2176 18.4567 7.34146 18.5825 7.4909 18.6709C7.64034 18.7593 7.81022 18.8073 7.98383 18.8101C8.15743 18.8129 8.32878 18.7704 8.481 18.6869L16.514 14.2789Z" fill="currentColor" />
+                                </g>
+                                <g filter="url(#filter0_d_27_856)">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 16.821L15.014 11.938L6 6.30396V16.821ZM15.49 12.818C15.6439 12.7347 15.7734 12.6126 15.8653 12.4637C15.9573 12.3148 16.0085 12.1444 16.014 11.9695C16.0195 11.7946 15.9789 11.6213 15.8965 11.467C15.814 11.3126 15.6924 11.1826 15.544 11.09L6.53 5.45596C6.37863 5.36135 6.20469 5.30899 6.02625 5.3043C5.8478 5.29961 5.67136 5.34278 5.51523 5.42931C5.3591 5.51585 5.22898 5.64259 5.13838 5.7964C5.04778 5.9502 5 6.12545 5 6.30396V16.821C4.9999 16.9942 5.04482 17.1645 5.13035 17.3152C5.21588 17.4659 5.33909 17.5917 5.4879 17.6804C5.63671 17.7692 5.80602 17.8177 5.97924 17.8213C6.15246 17.8249 6.32363 17.7834 6.476 17.701L15.491 12.818H15.49Z" fill="currentColor" />
+                                </g>
+                            </svg>
+                        </div>
+                        <!-- Text -->
+                        <div class="text-sm text-[#E9E5F4] font-medium">Watch&nbsp;now</div>
+                        <!-- Decorator -->
+                        <span class="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-pink-400/0 via-pink-400/90 to-pink-400/0 transition-opacity duration-500 group-hover/watch-button:opacity-40"></span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="prose prose-invert prose-headings:scroll-mt-28 prose-pre:px-0 prose-a:rounded-sm prose-a:transition hover:prose-a:text-gray-300 focus:prose-a:outline-none focus-visible:prose-a:ring-2 focus-visible:prose-a:ring-pink-400/50 lg:max-w-prose">
+                <p>After a user performs some action — like submitting a form — you may want to redirect them to another page in your application.</p>
+<p>Because Livewire requests aren't standard full-page browser requests, standard HTTP redirects won't work. Instead, you need to trigger redirects via JavaScript. Fortunately, Livewire exposes a simple <code>$this-&gt;redirect()</code> helper method to use within your components. Internally, Livewire will handle the process of redirecting on the frontend.</p>
+<p>If you prefer, you can use <a href="https://laravel.com/docs/responses#redirects">Laravel's built-in redirect utilities</a> within your components as well.</p>
+<h2 id="basic-usage" class="group whitespace-pre-wrap -ml-4 pl-4"><a href="#basic-usage" class="absolute -ml-8 mt-0.5 flex items-center opacity-0 border-0 no-underline transition group-hover:opacity-70" aria-hidden="true" title="Permalink">#</a>Basic usage</h2>
+<p>Below is an example of a <code>CreatePost</code> Livewire component that redirects the user to another page after they submit the form to create a post:</p>
+<pre><code data-theme="material-theme-palenight" data-lang="php" class='torchlight has-highlight-lines' style='background-color: #292D3E; --theme-selection-background: #00000080;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #89DDFF;">&lt;?php</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #F78C6C;">namespace</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">App</span><span style="color: #89DDFF;">\</span><span style="color: #FFCB6B;">Livewire</span><span style="color: #89DDFF;">;</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #F78C6C;">use</span><span style="color: #FFCB6B;"> </span><span style="color: #A6ACCD;">Livewire</span><span style="color: #89DDFF;">\</span><span style="color: #A6ACCD;">Component</span><span style="color: #89DDFF;">;</span></div><div class='line'><span style="color: #F78C6C;">use</span><span style="color: #FFCB6B;"> </span><span style="color: #A6ACCD;">App</span><span style="color: #89DDFF;">\</span><span style="color: #A6ACCD;">Models</span><span style="color: #89DDFF;">\</span><span style="color: #A6ACCD;">Post</span><span style="color: #89DDFF;">;</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">CreatePost</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Component</span></div><div class='line'><span style="color: #89DDFF;">{</span></div><div class='line'><span style="color: #A6ACCD;">    </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">title </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#39;&#39;</span><span style="color: #89DDFF;">;</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #A6ACCD;">    </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">content </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#39;&#39;</span><span style="color: #89DDFF;">;</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #A6ACCD;">    </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">function</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">save</span><span style="color: #89DDFF;">()</span></div><div class='line'><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">{</span></div><div class='line'><span style="color: #A6ACCD;">        </span><span style="color: #FFCB6B;">Post</span><span style="color: #89DDFF;">::</span><span style="color: #82AAFF;">create</span><span style="color: #89DDFF;">([</span></div><div class='line'><span style="color: #A6ACCD;">            </span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">title</span><span style="color: #89DDFF;">&#39;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$this-&gt;</span><span style="color: #A6ACCD;">title</span><span style="color: #89DDFF;">,</span></div><div class='line'><span style="color: #A6ACCD;">            </span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">content</span><span style="color: #89DDFF;">&#39;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$this-&gt;</span><span style="color: #A6ACCD;">content</span><span style="color: #89DDFF;">,</span></div><div class='line'><span style="color: #A6ACCD;">        </span><span style="color: #89DDFF;">]);</span></div><div class='line'>&nbsp;</div><div class='line line-highlight line-has-background' style='background-color: #00000050'><span style="color: #A6ACCD;">        </span><span style="color: #89DDFF;">$this-&gt;</span><span style="color: #82AAFF;">redirect</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">/posts</span><span style="color: #89DDFF;">&#39;</span><span style="color: #89DDFF;">);</span><span style="color: #A6ACCD;"> </span></div><div class='line'><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">}</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #A6ACCD;">    </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">function</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">render</span><span style="color: #89DDFF;">()</span></div><div class='line'><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">{</span></div><div class='line'><span style="color: #A6ACCD;">        </span><span style="color: #89DDFF;">return</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">view</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">livewire.create-post</span><span style="color: #89DDFF;">&#39;</span><span style="color: #89DDFF;">);</span></div><div class='line'><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">}</span></div><div class='line'><span style="color: #89DDFF;">}</span></div></code></pre>
+<p>As you can see, when the <code>save</code> action is triggered, a redirect will also be triggered to <code>/posts</code>. When Livewire receives this response, it will redirect the user to the new URL on the frontend.</p>
+<h2 id="redirect-to-route" class="group whitespace-pre-wrap -ml-4 pl-4"><a href="#redirect-to-route" class="absolute -ml-8 mt-0.5 flex items-center opacity-0 border-0 no-underline transition group-hover:opacity-70" aria-hidden="true" title="Permalink">#</a>Redirect to Route</h2>
+<p>In case you want to redirect to a page using its route name you can use the <code>redirectRoute</code>.</p>
+<p>For example, if you have a page with the route named <code>'profile'</code> like this:</p>
+<pre><code data-theme="material-theme-palenight" data-lang="php" class='torchlight' style='background-color: #292D3E; --theme-selection-background: #00000080;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #FFCB6B;">Route</span><span style="color: #89DDFF;">::</span><span style="color: #82AAFF;">get</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">/user/profile</span><span style="color: #89DDFF;">&#39;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">function</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">()</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class='line'><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// ...</span></div><div class='line'><span style="color: #89DDFF;">})-&gt;</span><span style="color: #82AAFF;">name</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">profile</span><span style="color: #89DDFF;">&#39;</span><span style="color: #89DDFF;">);</span></div></code></pre>
+<p>You can use <code>redirectRoute</code> to redirect to that page using the name of the route like so:</p>
+<pre><code data-theme="material-theme-palenight" data-lang="php" class='torchlight' style='background-color: #292D3E; --theme-selection-background: #00000080;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #89DDFF;">$this-&gt;</span><span style="color: #82AAFF;">redirectRoute</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">profile</span><span style="color: #89DDFF;">&#39;</span><span style="color: #89DDFF;">);</span></div></code></pre>
+<p>In case you need to pass parameters to the route you may use the second argument of the method <code>redirectRoute</code> like so:</p>
+<pre><code data-theme="material-theme-palenight" data-lang="php" class='torchlight' style='background-color: #292D3E; --theme-selection-background: #00000080;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #89DDFF;">$this-&gt;</span><span style="color: #82AAFF;">redirectRoute</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">profile</span><span style="color: #89DDFF;">&#39;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">[</span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">id</span><span style="color: #89DDFF;">&#39;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">1</span><span style="color: #89DDFF;">]);</span></div></code></pre>
+<h2 id="redirect-to-intended" class="group whitespace-pre-wrap -ml-4 pl-4"><a href="#redirect-to-intended" class="absolute -ml-8 mt-0.5 flex items-center opacity-0 border-0 no-underline transition group-hover:opacity-70" aria-hidden="true" title="Permalink">#</a>Redirect to intended</h2>
+<p>In case you want to redirect the user back to the previous page they were on you can use <code>redirectIntended</code>. It accepts an optional default URL as its first argument which is used as a fallback if no previous page can be determined:</p>
+<pre><code data-theme="material-theme-palenight" data-lang="php" class='torchlight' style='background-color: #292D3E; --theme-selection-background: #00000080;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #89DDFF;">$this-&gt;</span><span style="color: #82AAFF;">redirectIntended</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">/default/url</span><span style="color: #89DDFF;">&#39;</span><span style="color: #89DDFF;">);</span></div></code></pre>
+<h2 id="redirecting-to-full-page-components" class="group whitespace-pre-wrap -ml-4 pl-4"><a href="#redirecting-to-full-page-components" class="absolute -ml-8 mt-0.5 flex items-center opacity-0 border-0 no-underline transition group-hover:opacity-70" aria-hidden="true" title="Permalink">#</a>Redirecting to full-page components</h2>
+<p>Because Livewire uses Laravel's built-in redirection feature, you can use all of the redirection methods available to you in a typical Laravel application.</p>
+<p>For example, if you are using a Livewire component as a full-page component for a route like so:</p>
+<pre><code data-theme="material-theme-palenight" data-lang="php" class='torchlight' style='background-color: #292D3E; --theme-selection-background: #00000080;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #F78C6C;">use</span><span style="color: #FFCB6B;"> </span><span style="color: #A6ACCD;">App</span><span style="color: #89DDFF;">\</span><span style="color: #A6ACCD;">Livewire</span><span style="color: #89DDFF;">\</span><span style="color: #A6ACCD;">ShowPosts</span><span style="color: #89DDFF;">;</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #FFCB6B;">Route</span><span style="color: #89DDFF;">::</span><span style="color: #82AAFF;">get</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">/posts</span><span style="color: #89DDFF;">&#39;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">ShowPosts</span><span style="color: #89DDFF;">::</span><span style="color: #F78C6C;">class</span><span style="color: #89DDFF;">);</span></div></code></pre>
+<p>You can redirect to the component by providing the component name to the <code>redirect()</code> method:</p>
+<pre><code data-theme="material-theme-palenight" data-lang="php" class='torchlight' style='background-color: #292D3E; --theme-selection-background: #00000080;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">function</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">save</span><span style="color: #89DDFF;">()</span></div><div class='line'><span style="color: #89DDFF;">{</span></div><div class='line'><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// ...</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">$this-&gt;</span><span style="color: #82AAFF;">redirect</span><span style="color: #89DDFF;">(</span><span style="color: #FFCB6B;">ShowPage</span><span style="color: #89DDFF;">::</span><span style="color: #F78C6C;">class</span><span style="color: #89DDFF;">);</span></div><div class='line'><span style="color: #89DDFF;">}</span></div></code></pre>
+<h2 id="flash-messages" class="group whitespace-pre-wrap -ml-4 pl-4"><a href="#flash-messages" class="absolute -ml-8 mt-0.5 flex items-center opacity-0 border-0 no-underline transition group-hover:opacity-70" aria-hidden="true" title="Permalink">#</a>Flash messages</h2>
+<p>In addition to allowing you to use Laravel's built-in redirection methods, Livewire also supports Laravel's <a href="https://laravel.com/docs/session#flash-data">session flash data utilities</a>.</p>
+<p>To pass flash data along with a redirect, you can use Laravel's <code>session()-&gt;flash()</code> method like so:</p>
+<pre><code data-theme="material-theme-palenight" data-lang="php" class='torchlight' style='background-color: #292D3E; --theme-selection-background: #00000080;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #F78C6C;">use</span><span style="color: #FFCB6B;"> </span><span style="color: #A6ACCD;">Livewire</span><span style="color: #89DDFF;">\</span><span style="color: #A6ACCD;">Component</span><span style="color: #89DDFF;">;</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #C792EA;">class</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">UpdatePost</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">extends</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">Component</span></div><div class='line'><span style="color: #89DDFF;">{</span></div><div class='line'><span style="color: #89DDFF;">    </span><span style="color: #676E95;">// ...</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #A6ACCD;">    </span><span style="color: #C792EA;">public</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">function</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">update</span><span style="color: #89DDFF;">()</span></div><div class='line'><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">{</span></div><div class='line'><span style="color: #89DDFF;">        </span><span style="color: #676E95;">// ...</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #A6ACCD;">        </span><span style="color: #82AAFF;">session</span><span style="color: #89DDFF;">()-&gt;</span><span style="color: #82AAFF;">flash</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">status</span><span style="color: #89DDFF;">&#39;</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">Post successfully updated.</span><span style="color: #89DDFF;">&#39;</span><span style="color: #89DDFF;">);</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #A6ACCD;">        </span><span style="color: #89DDFF;">$this-&gt;</span><span style="color: #82AAFF;">redirect</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">/posts</span><span style="color: #89DDFF;">&#39;</span><span style="color: #89DDFF;">);</span></div><div class='line'><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">}</span></div><div class='line'><span style="color: #89DDFF;">}</span></div></code></pre>
+<p>Assuming the page being redirected to contain the following Blade snippet, the user will see a &quot;Post successfully updated.&quot; message after updating the post:</p>
+<pre><code data-theme="material-theme-palenight" data-lang="blade" class='torchlight' style='background-color: #292D3E; --theme-selection-background: #00000080;'><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #89DDFF;">@if </span><span style="color: #A6ACCD;">(</span><span style="color: #82AAFF;">session</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">status</span><span style="color: #89DDFF;">&#39;</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;">)</span></div><div class='line'><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&lt;</span><span style="color: #F07178;">div</span><span style="color: #89DDFF;"> </span><span style="color: #C792EA;">class</span><span style="color: #89DDFF;">=</span><span style="color: #89DDFF;">&quot;</span><span style="color: #C3E88D;">alert alert-success</span><span style="color: #89DDFF;">&quot;</span><span style="color: #89DDFF;">&gt;</span></div><div class='line'><span style="color: #A6ACCD;">        </span><span style="color: #82AAFF;">{{</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">session</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">&#39;</span><span style="color: #C3E88D;">status</span><span style="color: #89DDFF;">&#39;</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">}}</span></div><div class='line'><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">&lt;/</span><span style="color: #F07178;">div</span><span style="color: #89DDFF;">&gt;</span></div><div class='line'><span style="color: #89DDFF;">@endif</span></div></code></pre>
+
+            </div>
+        </div>
+
+        <div class="hidden max-h-[calc(100%-134px)] custom-scrollbar overflow-y-auto xl:fixed xl:right-[max(0px,calc(50%-48rem))] xl:block xl:py-14 xl:pr-3 xl:w-full xl:max-w-[240px]">
+            <p class="font-medium text-gray-500 text-sm uppercase">On this page</p>
+
+            <div class="mt-4">
+                <ul class="table-of-contents">
+<li>
+<a href="#basic-usage">Basic usage</a>
+</li>
+<li>
+<a href="#redirect-to-route">Redirect to Route</a>
+</li>
+<li>
+<a href="#redirect-to-intended">Redirect to intended</a>
+</li>
+<li>
+<a href="#redirecting-to-full-page-components">Redirecting to full-page components</a>
+</li>
+<li>
+<a href="#flash-messages">Flash messages</a>
+</li>
+</ul>
+            </div>
+
+            
+            <div class="mt-6">
+                <script async type="text/javascript" src="../../cdn.carbonads.com/carbonff47.js?serve=CWYI55QL&amp;placement=livewirelaravelcom&amp;format=responsive" id="_carbonads_js"></script>
+            </div>
+        </div>
+
+        <div class="hidden xl:block xl:w-full xl:max-w-[240px]"></div>
+    </div>
+        </main>
+
+        <footer class="flex items-center justify-center gap-10 px-6">
+            <div class="hidden lg:block lg:max-w-[240px] lg:w-full"></div>
+        <div class="flex-1">
+        <div
+            class="mx-auto w-full px-6 !max-w-prose mt-20 !px-0"
+        >
+            <div
+                class="w-full py-12 flex items-center justify-between flex-wrap gap-6 border-t border-gray-700"
+            >
+                <div class="-mx-2">
+                    <a href="https://livewire.laravel.com/" aria-label="Laravel home" title="Laravel home" class="inline-flex items-center rounded-md px-2 py-1 transition hover:opacity-75 focus:outline-none focus-visible:ring focus-visible:ring-pink-400/50">
+                        <svg width="159" height="30" viewBox="0 0 159 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M54.76 23V9h3.4v11h6.24v3h-9.64Zm11.508 0v-2.86h2.36v-8.28h-2.36V9h8.14v2.86h-2.38v8.28h2.38V23h-8.14Zm14.893 0-5.6-14h3.54l2.7 7.14c.16.413.294.773.4 1.08.12.307.22.593.3.86.094.267.174.54.24.82.08.267.167.573.26.92h-.62a20.93 20.93 0 0 1 .68-2.3c.134-.387.3-.847.5-1.38l2.6-7.14h3.48l-5.64 14h-2.84Zm9.918 0V9h9.761v2.9h-6.46v8.2h6.66V23h-9.96Zm1.6-5.74V14.5h7.26v2.76h-7.26ZM106.09 23l-4.2-14h3.46l2.1 7.36c.093.333.173.673.24 1.02.08.333.14.653.18.96.053.307.093.593.12.86.027.253.053.467.08.64h-.44c.08-.493.147-.933.2-1.32.067-.387.14-.747.22-1.08.08-.347.18-.707.3-1.08l2.08-5.54h2.72l2.04 5.54c.16.44.293.853.4 1.24.107.387.187.76.24 1.12.067.347.12.693.16 1.04l-.4.06c.027-.24.047-.46.06-.66.013-.213.027-.413.04-.6.027-.2.053-.407.08-.62.027-.213.067-.447.12-.7.053-.267.127-.567.22-.9L118.19 9h3.38l-4.2 14h-2.6l-3.32-8.06.38.04-3.06 8.02h-2.68Zm16.663 0v-2.86h2.36v-8.28h-2.36V9h8.14v2.86h-2.38v8.28h2.38V23h-8.14Zm10.974 0V9h6.3c.894 0 1.7.193 2.42.58.734.387 1.307.92 1.72 1.6.414.667.62 1.427.62 2.28 0 .88-.206 1.673-.62 2.38a4.463 4.463 0 0 1-1.7 1.64c-.72.4-1.533.6-2.44.6h-3.06V23h-3.24Zm7.76 0-3.56-6.32 3.48-.5 3.96 6.82h-3.88Zm-4.52-7.52h2.76c.347 0 .647-.073.9-.22.267-.16.467-.38.6-.66.147-.28.22-.6.22-.96s-.08-.673-.24-.94a1.555 1.555 0 0 0-.7-.64c-.293-.147-.653-.22-1.08-.22h-2.46v3.64ZM147.37 23V9h9.76v2.9h-6.46v8.2h6.66V23h-9.96Zm1.6-5.74V14.5h7.26v2.76h-7.26Z" fill="#F1F5F9"/><path fill-rule="evenodd" clip-rule="evenodd" d="M34.8 27.706C34.12 28.734 33.605 30 32.223 30c-2.326 0-2.452-3.587-4.78-3.587-2.327 0-2.201 3.587-4.527 3.587s-2.452-3.587-4.78-3.587c-2.327 0-2.201 3.587-4.528 3.587-2.326 0-2.452-3.587-4.78-3.587C6.5 26.413 6.628 30 4.3 30c-.731 0-1.245-.354-1.678-.84A19.866 19.866 0 0 1 0 19.24C0 8.613 8.208 0 18.333 0 28.46 0 36.667 8.614 36.667 19.24c0 3.037-.671 5.91-1.866 8.466Z" fill="#FB70A9"/><path fill-rule="evenodd" clip-rule="evenodd" d="M34.8 27.706C34.12 28.734 33.605 30 32.223 30c-2.326 0-2.452-3.587-4.78-3.587-2.327 0-2.201 3.587-4.527 3.587s-2.452-3.587-4.78-3.587c-2.327 0-2.201 3.587-4.528 3.587-2.326 0-2.452-3.587-4.78-3.587C6.5 26.413 6.628 30 4.3 30c-.731 0-1.245-.354-1.678-.84A19.866 19.866 0 0 1 0 19.24C0 8.613 8.208 0 18.333 0 28.46 0 36.667 8.614 36.667 19.24c0 3.037-.671 5.91-1.866 8.466Z" fill="#FB70A9"/><path fill-rule="evenodd" clip-rule="evenodd" d="M30.834 29.617c4.804-7.147 4.929-15.075.372-23.784a19.19 19.19 0 0 1 5.461 13.447c0 3.026-.695 5.89-1.934 8.434C34.028 28.738 33.493 30 32.06 30c-.49 0-.886-.148-1.226-.383Z" fill="#E24CA6"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.35 24.038c6.376 0 9.06-3.698 9.06-8.95C26.41 9.834 22.355 5 17.35 5c-5.003 0-9.059 4.835-9.059 10.087 0 5.253 2.684 8.951 9.06 8.951Z" fill="#fff"/><path d="M14.915 15.385c1.876 0 3.397-1.68 3.397-3.75 0-2.071-1.52-3.75-3.397-3.75-1.876 0-3.397 1.679-3.397 3.75 0 2.07 1.52 3.75 3.397 3.75Z" fill="#030776"/><path d="M14.35 12.5c.937 0 1.698-.775 1.698-1.73 0-.957-.76-1.731-1.699-1.731-.938 0-1.699.774-1.699 1.73s.76 1.731 1.7 1.731Z" fill="#fff"/></svg>
+                    </a>
+                </div>
+                <nav class="flex items-center gap-6 text-sm">
+                    
+                    <a href="https://github.com/livewire/livewire" class="rounded-md p-1 text-gray-400 transition-colors hover:text-gray-300 focus-visible:outline-none focus-visible:ring focus-visible:ring-pink-400/50">
+                        <svg class="w-6" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 0C7.16 0 0 7.16 0 16c0 7.08 4.58 13.06 10.94 15.18.8.14 1.1-.34 1.1-.76 0-.38-.02-1.64-.02-2.98-4.02.74-5.06-.98-5.38-1.88-.18-.46-.96-1.88-1.64-2.26-.56-.3-1.36-1.04-.02-1.06 1.26-.02 2.16 1.16 2.46 1.64 1.44 2.42 3.74 1.74 4.66 1.32.14-1.04.56-1.74 1.02-2.14-3.56-.4-7.28-1.78-7.28-7.9 0-1.74.62-3.18 1.64-4.3-.16-.4-.72-2.04.16-4.24 0 0 1.34-.42 4.4 1.64 1.28-.36 2.64-.54 4-.54 1.36 0 2.72.18 4 .54 3.06-2.08 4.4-1.64 4.4-1.64.88 2.2.32 3.84.16 4.24 1.02 1.12 1.64 2.54 1.64 4.3 0 6.14-3.74 7.5-7.3 7.9.58.5 1.08 1.46 1.08 2.96 0 2.14-.02 3.86-.02 4.4 0 .42.3.92 1.1.76A16.026 16.026 0 0 0 32 16c0-8.84-7.16-16-16-16Z" fill="currentColor"/></svg>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+            <div class="hidden xl:block xl:max-w-[240px] xl:w-full"></div>
+    </footer>
+
+        <script data-navigate-once="true">window.livewireScriptConfig = {"csrf":"haKZL8qanjOGiF4ilZ82UmVjgbgoHf9e3C2tSAGG","uri":"\/livewire\/update","progressBar":"","nonce":""};</script>
+                <script type="text/javascript" src="../../cdn.jsdelivr.net/npm/docsearch.js%402/dist/cdn/docsearch.min.js"></script>
+            <script data-navigate-once>
+            document.addEventListener('alpine:init', () => {
+                let state = Alpine.reactive({ path: window.location.pathname })
+
+                document.addEventListener('livewire:navigated', () => {
+                    queueMicrotask(() => {
+                        state.path = window.location.pathname
+                    })
+                })
+
+                Alpine.magic('current', (el) => (expected = '') => {
+                    let strip = (subject) => subject.replace(/^\/|\/$/g, '')
+
+                    return strip(state.path) === strip(expected)
+                })
+            })
+        </script>
+    </body>
+
+<!-- Mirrored from livewire.laravel.com/docs/redirecting by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Sep 2024 16:09:09 GMT -->
+</html>
